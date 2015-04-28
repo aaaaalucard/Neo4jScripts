@@ -1,0 +1,3 @@
+id,preferences
+1,{"mff":{"tracking":true}}
+2,{"mff":{"tracking":false}}
