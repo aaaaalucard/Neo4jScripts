@@ -1,0 +1,33 @@
+id,givenName,familyName,nicknames,kind
+1,Abraham,Simpson,\[\"Abe\"\],person
+2,Mona,Simpson,\[\"Mona\"\],person
+3,Clancy,Bouvier,\[\"Clancy\"\],person
+4,Jackie,Bouvier,\[\"Jackie\"\],person
+5,Herb, Powell,\[\"Herb\"\],person
+6,Homer,Simpson,\[\"Homer\"\, \"Homie\"\],person
+7,Marge,Simpson,\[\"Marge\"\],person
+8,Patty,Bouvier,\[\"Patty\"\],person
+9,Selma,Bouvier,\[\"Selma\"\],person
+10,Bart,Simpson,\[\"Bart\"\],person
+11,Lisa,Simpson,\[\"Lisa\"\],person
+12,Maggie,Simpson,\[\"Maggie\"\],person
+13,Ling,Bouvier,\[\"Ling\"\],person
+14,Nedward,Flanders,\[\"Ned\"\],person
+15,Rodney,Flanders,\[\"Rod\"\],person
+16,Todd,Flanders,\[\"Todd\"\],person
+17,Moe,Szyslak,\[\"Moe\"\],person
+18,Barney,Gumble,\[\"Barney\"\],person
+19,Carl,Carlson,\[\"Carl\"\],person
+20,Lenny,Leonard,\[\"Lenny\"\],person
+21,Montgomery,Burns,\[\"Mr. Burns\"\],person
+22,Waylon,Smithers\, Jr.,\[\"Smithers\"\],person
+23,Seymour,Skinner,\[\"Seymour\"\],person
+24,Edna,Krabappel,\[\"Edna\"\],person
+25,Groundskeeper,Willie,\[\"Willie\"\],person
+26,Nelson,Muntz,\[\"Nelson\"\],person
+27,Milhouse,Van Houten,\[\"Milhouse\"\],person
+28,Martin,Prince,\[\"Martin\"\],person
+29,Apu,Nahasapeemapetilon,\[\"Apu\"\],person
+30,Bleeding Gums,Murphy,\[\"Bleeding Gums\"\],person
+31,Snowball,Simpson,\[\"Snowball\"\],cat
+32,Santa's Little Helper,Simpson,\[\"Santa's Little Helper\"\],dog
