@@ -1,0 +1,6 @@
+id,name,kind,lat,lon,streetNum,route,city,state,zipcode
+1,Simpson's Home,residence,39.6983,-89.6197,742,Evergreen Terrace,Springfield,IL,58008
+2,Springfield Nuclear Power Plant,energy source,39.70,-89.63,100,Industrial Way,Springfield,IL,58008
+3,Moe's Tavern,bar,39.71,-89.6204,800,Evergreen Terrace,Springfield,IL,58008
+4,Springfield Elementary School,school,39.7055,-89.6204,1000,Evergreen Terrace,Springfield,IL,58008
+5,Kwik-E-Mart,store,39.7105,-89.6305,1002,Evergreen Terrace,Springfield,IL,58008
