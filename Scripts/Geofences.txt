@@ -1,0 +1,7 @@
+id,name,radiusInMeters
+1,Simpson's Home,3
+2,Elementary School,5
+3,Power Plant,5
+4,Kwik-E-Mart,10
+5,Moe's,3
+6,Simpson's Neighborhood,100
