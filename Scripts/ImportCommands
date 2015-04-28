@@ -1,0 +1,133 @@
+// Import Profiles
+USING PERIODIC COMMIT
+LOAD CSV WITH HEADERS FROM "file:/Users/mklepp001c/Documents/Simpsons/Profiles.txt" AS row
+CREATE (:Profile 
+{
+	id: "simpsonsProfile"+row.id,  
+	given_name: row.givenName, 
+	family_name: row.familyName, 
+	nicknames: row.nicknames, 
+	created: timestamp(), 
+	updated: timestamp()
+}
+);
+
+// Import Places
+USING PERIODIC COMMIT
+LOAD CSV WITH HEADERS FROM "file:/Users/mklepp001c/Documents/Simpsons/Places.txt" AS row
+CREATE (:Place 
+{
+	id: "simpsonsPlace"+row.id,
+	kind: row.kind,
+	loc_cord_lat: row.lat,
+	loc_cord_long: row.lon,
+	loc_addr_streetNum: row.streetNum,
+	loc_addr_route: row.route,
+	loc_addr_locality: row.city,
+	loc_addr_admAreaLv1: row.state,
+	loc_addr_postCode: row.zipcode,
+	created:timestamp(), 
+	updated:timestamp()
+}
+);
+
+// Import Groups
+USING PERIODIC COMMIT
+LOAD CSV WITH HEADERS FROM "file:/Users/mklepp001c/Documents/Simpsons/Groups.txt" AS row
+CREATE (:Group 
+{
+	id: "simpsonsGroup"+row.id,
+	name: row.name,
+	created:timestamp(), 
+	updated:timestamp()
+}
+);
+
+// Import Geofences
+USING PERIODIC COMMIT
+LOAD CSV WITH HEADERS FROM "file:/Users/mklepp001c/Documents/Simpsons/Geofences.txt" AS row
+CREATE (:Geofence
+{
+	id: "simpsonsGeofence"+row.id,
+	name: row.name,
+	radius: toInt(row.radiusInMeters),
+	created:timestamp(), 
+	updated:timestamp()
+}
+);
+
+// Import ServiceAccounts
+USING PERIODIC COMMIT
+LOAD CSV WITH HEADERS FROM "file:/Users/mklepp001c/Documents/Simpsons/ServiceAccounts.txt" AS row
+CREATE (:ServiceAccount
+{
+	id: "simpsonsServiceAccount"+row.id,
+	account_number: row.accountNumber,
+	created:timestamp(), 
+	updated:timestamp()
+}
+);
+
+// Import Preferences
+USING PERIODIC COMMIT
+LOAD CSV WITH HEADERS FROM "file:/Users/mklepp001c/Documents/Simpsons/Preferences.txt" AS row
+CREATE (:Preferences
+{
+	id: "simpsonsPreferences"+row.id,
+	client_data: row. preferences,
+	created:timestamp(), 
+	updated:timestamp()
+}
+);
+
+// Add edges from places to geofences
+MATCH (p1:Place), (g:Geofence)
+WHERE p1.id = "simpsonsPlace1" AND g.id = "simpsonsGeofence1"
+CREATE (p1) -[e:HAS_GEOFENCE]-> (g)
+WITH p1
+MATCH (p2:Place), (g:Geofence)
+WHERE p2.id = "simpsonsPlace2" AND g.id = "simpsonsGeofence2"
+CREATE (p2) -[e:HAS_GEOFENCE]-> (g)
+WITH p2
+MATCH (p3:Place), (g:Geofence)
+WHERE p3.id = "simpsonsPlace3" AND g.id = "simpsonsGeofence3"
+CREATE (p3) -[e:HAS_GEOFENCE]-> (g)
+WITH p3
+MATCH (p4:Place), (g:Geofence)
+WHERE p4.id = "simpsonsPlace4" AND g.id = "simpsonsGeofence4"
+CREATE (p4) -[e:HAS_GEOFENCE]-> (g)
+WITH p4
+MATCH (p5:Place), (g:Geofence)
+WHERE p5.id = "simpsonsPlace5" AND g.id = "simpsonsGeofence5"
+CREATE (p5) -[e:HAS_GEOFENCE]-> (g)
+WITH p5
+MATCH (p6:Place), (g:Geofence)
+WHERE p6.id = "simpsonsPlace1" AND g.id = "simpsonsGeofence6"
+CREATE (p6) -[e:HAS_GEOFENCE]-> (g)
+
+// Add edges from groups to places
+MATCH (g1:Group), (p:Place)
+WHERE g1.id = "simpsonsGroup1" AND p.id = "simpsonsPlace1"
+CREATE (g1) -[e:HAS_PLACE]-> (p)
+WITH g1
+MATCH (g2:Group), (p:Place)
+WHERE g2.id = "simpsonsGroup2" AND p.id = "simpsonsPlace2"
+CREATE (g2) -[e:HAS_PLACE]-> (p)
+WITH g2
+MATCH (g3:Group), (p:Place)
+WHERE g3.id = "simpsonsGroup3" AND p.id = "simpsonsPlace3"
+CREATE (g3) -[e:HAS_PLACE]-> (p)
+WITH g3
+MATCH (g4:Group), (p:Place)
+WHERE g4.id = "simpsonsGroup4" AND p.id = "simpsonsPlace4"
+CREATE (g4) -[e:HAS_PLACE]-> (p)
+WITH g4
+MATCH (g5:Group), (p:Place)
+WHERE g5.id = "simpsonsGroup5" AND p.id = "simpsonsPlace5"
+CREATE (g5) -[e:HAS_PLACE]-> (p)
+
+// This one is incorrect!
+MATCH g, p
+WHERE g.name = "Simpsons Immediate Family"
+AND p.given_name IN ["Homer", "Marge", "Bart", "Lisa", "Maggie", "Abe"]
+CREATE (g) -[e:HAS_USER]-> (p)
