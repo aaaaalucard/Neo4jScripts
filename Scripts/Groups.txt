@@ -1,0 +1,6 @@
+id,name
+1,Simpsons Immediate Family
+2,Power Plant Employees
+3,Moe's Customers
+4,Elementary School Students
+5,Apu's Customers
